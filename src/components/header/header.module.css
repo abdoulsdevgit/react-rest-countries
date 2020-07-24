@@ -1,0 +1,33 @@
+.dark {
+    height: 10vh;
+    background-color: hsl(209, 23%, 22%);
+    display: flex;
+    align-items: center;
+}
+
+.light {
+    height: 10vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.mode {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.main {
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+}

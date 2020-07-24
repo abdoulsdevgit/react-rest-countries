@@ -1,0 +1,47 @@
+:root {
+    font-size: 14px;
+    
+}
+
+html {
+    height: 100vh;
+}
+
+.dark{
+    background-color: hsl(207, 26%, 17%);
+    height: 100%;
+    color: hsl(0, 0%, 100%);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.light {
+    background-color: hsl(0, 0%, 98%);
+    height: 100%;
+    color: hsl(200, 15%, 8%);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.countries {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    /* grid-auto-rows: ; */
+}
+
+@media (max-width: 700px) {
+    .countries {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        /* grid-auto-rows: ; */
+    }
+}
+
+@media (max-width: 400px) {
+    .countries {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        /* grid-auto-rows: ; */
+    }
+}
