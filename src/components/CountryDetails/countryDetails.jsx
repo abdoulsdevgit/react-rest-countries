@@ -8,7 +8,7 @@ class  CountryDetails extends Component {
 
     constructor(props) {
         super(props);
-        this.url = "https://restcountries.eu/rest/v2/alpha/";
+        this.url = 'https://restcountries.com/v3.1/alpha/';
         this.error = false;
         this.state = {
             country: [],
@@ -18,13 +18,25 @@ class  CountryDetails extends Component {
     }
 
     async componentDidMount() {
-        this.setState({country: await getData(this.url+this.props.match.params.code)}, 
+        this.setState({country: await getData(this.url+this.props.match.params.code)},
             () => this.setState({countriesLoaded: true})
         )
     }
 
+    printLanguages = (obj) => {
+        return Object.entries(obj).map(
+            ([key, value], i) => <span key={i}>{`${value} `}</span>
+        )
+    }
+
+    printCurrencies = (obj) => {
+        return Object.entries(obj).map(
+            ([key, value], i) => <span key={i}>{`${value.name} ${value.symbol}`}</span>
+        ) 
+    }
+
     componentWillUnmount() {
-        console.log("unmounting");
+        
     }
 
     render(){
@@ -36,41 +48,45 @@ class  CountryDetails extends Component {
                 if ('status' in this.state.country) {
                     return <h1>Country does not exist</h1>
                 }
-            
+
             return(
+                
                 <div>
                     <Button onClick={this.handleBack}> Back </Button>
                     <div>
-                        <img src={`${this.state.country.flag}`} alt=""/>
+                        <img src={`${this.state.country[0].flags.svg}`} alt=""/>
                         <div>
                             
                             {/* LeftSide */}
                             <div>
                                 <div>
-                                    <h3>{this.state.country.name}</h3>
+                                    <h3>{this.state.country[0].name.official}</h3>
                                 </div>
                                 {/* left */}
                                 <div>
-                                    <p><span>Native Name: </span> {this.state.country.nativeName}</p>
-                                    <p> <span>Population: </span>{this.state.country.population}</p>
-                                    <p> <span>Region: </span> {this.state.country.region}</p>
-                                    <p> <span>Sub Region: </span> {this.state.country.subregion}</p>
-                                    <p> <span>Capital:</span>{this.state.country.capital}</p>
+                                    <p><span>Native Name: </span> {this.state.country[0].name.official}</p>
+                                    <p> <span>Population: </span>{this.state.country[0].population}</p>
+                                    <p> <span>Region: </span> {this.state.country[0].region}</p>
+                                    <p> <span>Sub Region: </span> {this.state.country[0].subregion}</p>
+                                    <p> <span>Capital:</span>{this.state.country[0].capital[0]}</p>
+                
                                 </div>
                                 {/* Right */}
                                 <div>
-                                    <p><span>Top Level Domain: </span>{this.state.country.topLevelDomain.map((domain, i) => <span key={i}>{domain}</span>)}</p>
-                                    <p><span>Currencies: </span>{this.state.country.currencies[0].code}</p>
-                                    <p><span>Languages: </span>{this.state.country.languages.map((lang, i) => <span key={i}>{i !== this.state.country.languages.length - 1 ? lang.name + ", " : lang.name}</span>)}</p>
+                                    <p><span>Top Level Domain: </span>{this.state.country[0].tld.map((domain, i) => <span key={i}>{domain}</span>)}</p>
+                                    <p><span>Currencies: </span>{this.printCurrencies(this.state.country[0].currencies)}</p>
+                                    <p><span>Languages: </span>{this.printLanguages(this.state.country[0].languages)}</p>
                                 </div>
                                 {/* broder */}
                                 <div>
                                     <span>Bodering Countries: </span>
                                     {
-                                        this.state.country.borders.map((border, i) =>
+                                        this.state.country[0].borders ?
+
+                                        this.state.country[0].borders.map((border, i) =>
                                             <Button key={i} onClick={() => this.reload(border)}>{border} </Button>
                                             // <Link to={`detail/${border}`} > {border}</Link>
-                                        )
+                                        ) : <span> This country has no borders</span>
                                     }
                                 </div>
                             </div>

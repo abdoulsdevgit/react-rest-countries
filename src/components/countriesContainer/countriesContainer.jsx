@@ -19,8 +19,8 @@ import CountryDetails from "../CountryDetails/countryDetails";
 class CountryContainer extends Component {
     constructor(props) {
         super(props);
-        this.url = "https://restcountries.eu/rest/v2/all";
-        this.codeUrl = "https://restcountries.eu/rest/v2/alpha/";
+        this.url = "https://restcountries.com/v3.1/all";
+        this.codeUrl = "https://restcountries.com/v3.1/alpha/";
         this.state = {
             countries: [],
             mode: true,
@@ -77,13 +77,21 @@ class CountryContainer extends Component {
                                 return (
                                 <Country
                                     key={index}
-                                    image={country.flag}
-                                    name={country.name}
+                                    image={country.flags.svg}
+                                    name={country.name.common}
                                     population={country.population}
                                     region={country.region}
                                     capital={country.capital}
                                     mode={this.state.mode}
-                                    showDetail={() => this.showDetail(country.alpha3Code)}
+                                    showDetail={() => this.showDetail(country.cca3)}
+                                    // key={index}
+                                    // image={country.flag}
+                                    // name={country.name}
+                                    // population={country.population}
+                                    // region={country.region}
+                                    // capital={country.capital}
+                                    // mode={this.state.mode}
+                                    // showDetail={() => this.showDetail(country.alpha3Code)}
                                 />
                                 );
                             })
@@ -107,9 +115,12 @@ class CountryContainer extends Component {
   //search
     handleSearch = async (event) => {
         await this.setState({ search: event.target.value });
-            let temp = [...this.backup];
+            
+            let temp = await getData(this.url);
+           
             let result = temp.filter((country) =>
-                country.name
+                //JSON.stringify(country).name
+                country.name.common
                 .toLowerCase()
                 .includes(this.state.search.trim().toLowerCase())
             );
@@ -126,10 +137,10 @@ class CountryContainer extends Component {
         let urls = "";
         switch (event.target.value) {
         case "World":
-            urls = "https://restcountries.eu/rest/v2/all";
+            urls = "https://restcountries.com/v3.1/all";
             break;
         default:
-            urls = `https://restcountries.eu/rest/v2/region/${event.target.value}`;
+            urls = `https://restcountries.com/v3.1/region/${event.target.value}`;
             break;
         }
         this.setState({ countries: await getData(urls) });
@@ -149,4 +160,9 @@ export default withRouter (CountryContainer);
  *
  * Parent container passes mode to each child component
  * to tell it to render dark or light mode.
+ */
+
+
+/**
+ * TODO: fix the api calls.j
  */
