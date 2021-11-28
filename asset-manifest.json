@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/react-rest-countries/static/css/main.7d921824.chunk.css",
-    "main.js": "/react-rest-countries/static/js/main.0022137b.chunk.js",
-    "main.js.map": "/react-rest-countries/static/js/main.0022137b.chunk.js.map",
+    "main.css": "/react-rest-countries/static/css/main.f5a0c1d2.chunk.css",
+    "main.js": "/react-rest-countries/static/js/main.c47c5da7.chunk.js",
+    "main.js.map": "/react-rest-countries/static/js/main.c47c5da7.chunk.js.map",
     "runtime-main.js": "/react-rest-countries/static/js/runtime-main.329db070.js",
     "runtime-main.js.map": "/react-rest-countries/static/js/runtime-main.329db070.js.map",
     "static/css/2.af3c1da9.chunk.css": "/react-rest-countries/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.82efd5dd.chunk.js": "/react-rest-countries/static/js/2.82efd5dd.chunk.js",
-    "static/js/2.82efd5dd.chunk.js.map": "/react-rest-countries/static/js/2.82efd5dd.chunk.js.map",
+    "static/js/2.a214e2b9.chunk.js": "/react-rest-countries/static/js/2.a214e2b9.chunk.js",
+    "static/js/2.a214e2b9.chunk.js.map": "/react-rest-countries/static/js/2.a214e2b9.chunk.js.map",
     "index.html": "/react-rest-countries/index.html",
-    "precache-manifest.89b5098e9b2ddca5134cf957882345b7.js": "/react-rest-countries/precache-manifest.89b5098e9b2ddca5134cf957882345b7.js",
+    "precache-manifest.009116c5bb36c8ecfff7dc0e3bccba41.js": "/react-rest-countries/precache-manifest.009116c5bb36c8ecfff7dc0e3bccba41.js",
     "service-worker.js": "/react-rest-countries/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/react-rest-countries/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.7d921824.chunk.css.map": "/react-rest-countries/static/css/main.7d921824.chunk.css.map",
-    "static/js/2.82efd5dd.chunk.js.LICENSE.txt": "/react-rest-countries/static/js/2.82efd5dd.chunk.js.LICENSE.txt"
+    "static/css/main.f5a0c1d2.chunk.css.map": "/react-rest-countries/static/css/main.f5a0c1d2.chunk.css.map",
+    "static/js/2.a214e2b9.chunk.js.LICENSE.txt": "/react-rest-countries/static/js/2.a214e2b9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.329db070.js",
     "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.82efd5dd.chunk.js",
-    "static/css/main.7d921824.chunk.css",
-    "static/js/main.0022137b.chunk.js"
+    "static/js/2.a214e2b9.chunk.js",
+    "static/css/main.f5a0c1d2.chunk.css",
+    "static/js/main.c47c5da7.chunk.js"
   ]
 }
